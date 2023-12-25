@@ -1,0 +1,61 @@
+
+{% load static %}
+{% block body %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+
+  </head>
+  <body>
+    <section class="form-02-main">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="_lk_de">
+              <div class="form-03-main">
+                <div class="logo"> <div><a href="{% url 'bankapp:demo' %}"><img src="{% static 'assets/images/user.png' %}"></a></div>
+                </div>
+
+                <form action="{% url 'bankapp:register' %}"  method="post">
+                        {% csrf_token %}
+                    <div class="form-group">
+                    <input type="text" name="username" class="form-control _ge_de_ol" placeholder="username"><br>
+                    </div>
+                    <div class="form-group">
+                          <input type="password" name="password" class="form-control _ge_de_ol" placeholder="password"><br>
+                            </div>
+                         <div class="form-group">
+                        <input type="password" name="password1" class="form-control _ge_de_ol" placeholder="confirm password"><br>
+                        </div>
+                       <div class="form-group">
+
+
+<a><input type="submit" value="submit" style="background-color:#fd7e14;  border: 2px solid #fd7e14;" class="_btn_04"></a>
+
+                       </div>
+
+                    <a href="{% url 'bankapp:demo' %}"><input type="button" value="Home" style="background-color:#fd7e14;  border: 2px solid #fd7e14;" class="_btn_04"></a>
+                  </form>
+                  {% for msg in messages %}
+<h2>{{msg}}</h2>
+{% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+
+
+{% endblock %}
