@@ -53,6 +53,11 @@ def single(request):
 
 def form(request):
  if request.method == 'POST':
-        messages.success(request,'Application accepted')
+       messages.success(request,'Form successfully submitted')
+           return redirect('bankapp:message')
 
  return  render(request,'form.html')
+def message(request):
+
+
+    return   render(request,'message.html')
